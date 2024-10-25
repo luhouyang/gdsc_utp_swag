@@ -8,14 +8,6 @@ function sendEmail() {
   const my_name = "Lu Hou Yang"; // replace with your name
   const my_phone = "+6010-258 0630"; // +6010-000 0000 replace with your phone number
 
-  // EMAIL DETAILS
-  // REPLACE WITH OWN DETAILS
-  const sem_year = "SEPT 2024";
-  const purchase_link = "https://docs.google.com/forms/d/e/1FAIpQLSfk_dJmrxFlfVeTbLMftS8Rbtj605YnEppDWgXEi1n_uV1fKg/viewform?usp=pp_url";
-
-  const sem_year_template = `<b>${sem_year}</b>`;
-  const purchase_link_template = `<a href=${purchase_link}>Purchase Link</a>`;
-
   // EMAIL TEMPLATE DOCS
   // REPLACE WITH OWN DETAILS
   const docId = '1dAga7XKv4ZfhHakcWnKhM3JHtUj-6KLPNuvegT93WC8';
@@ -41,10 +33,20 @@ function sendEmail() {
     var subject = "GDSC-UTP Swag Pre-Order";
 
     var message = HtmlService.createHtmlOutput(content).getContent();
+    message = message.replace('<style type="text/css">', '<link href="https://fonts.cdnfonts.com/css/google-sans" rel="stylesheet"><style type="text/css">');
+
+    while(message.includes('"Google Sans"')){
+      message = message.replace('"Google Sans"', '"Product Sans"')
+    }
+    
+    while (message.includes('"Arial"')){
+      message = message.replace('"Arial"', '"Product Sans"')
+    }
+
+    // var message = HtmlService.createHtmlOutputFromFile('test.html').getContent();
+    // console.log(message);
 
     message = message.replace('{{ALUMNI_NAME}}', alumni_name);
-    message = message.replace('{{SEM_YEAR}}', sem_year_template);
-    message = message.replace('{{PURCHASE_LINK}}', purchase_link_template);
     message = message.replace('{{SHIPPING_ADDRESS}}', shipping_address);
     message = message.replace('{{POSTCODE}}', postcode);
 
