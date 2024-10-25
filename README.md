@@ -16,6 +16,6 @@ Wouldn't it be nice if you could have the chance to purchase swag from your favo
 
     1. Go to the Excel Sheet connected with the Google Form. Navigate to `Extensions` &rarr; `Apps Script`
 
-    1. Change the variables to yours. Specifically `sem_year`, `purchase_link`, 'docId'
+    1. Change the variables to yours. Specifically `sem_year`, `purchase_link`, `docId`
 
     1. Save the changes. Then click on `Run`
